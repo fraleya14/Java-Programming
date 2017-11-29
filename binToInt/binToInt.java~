@@ -1,0 +1,139 @@
+import java.util.*;
+import java.io.*;
+
+
+//Description: binToInt takes in binary and returns IPv4 
+public class binToInt
+{
+  public static boolean [] ok = new boolean [8];
+  public static int [] IPv4 = new int[4];
+  public static void main(String [] args)
+  {
+    for(int i = 0; i < 4; i++)
+    {
+      int [] binToInt = new int[8];
+      initBin(binToInt);
+      inputBin(binToInt);
+      outputBin(binToInt);
+      IPv4[i] = outputInt(binToInt);
+      System.out.println(IPv4[i] + " ");
+    }
+    System.out.println(IPv4[0] + "." + IPv4[1] + "." + IPv4[2] + "." + IPv4[3]);
+  }
+  
+  
+//initBin:
+//initalizes the [] binToInt
+  
+  static void initBin(int[] binToInt)
+  {
+    for(int i = 0; i < 8; i++)
+    {
+      binToInt[i] = 0;
+      ok[i] = false;
+    }
+  }
+  
+  
+//inputBin:
+//Read input from scanner and puts in either 1 or 0 into each
+//slot of the binToInt array  
+
+  static void inputBin(int [] binToInt)
+  {
+    InputStreamReader instr = new InputStreamReader(System.in);
+    BufferedReader stdin = new BufferedReader(instr);
+    StringTokenizer stok;
+    int num;
+    String value;
+    try
+    {
+      System.out.println("Input a 8 digit binary code. ");
+      System.out.println();
+      value = stdin.readLine();
+      System.out.println();
+      stok = new StringTokenizer(value);
+      while (stok.hasMoreTokens())
+      {
+        for(int i = 0; i < 8; i++)
+        {
+          num = Integer.parseInt(stok.nextToken());
+          int z = num;
+          if (z == 0 || z == 1)
+          {
+            binToInt[i] = z;
+            if(z == 1)
+            {
+              ok[i] = true;
+            }
+            if(z == 0)
+            {
+              ok[i] = false;
+            }
+          }
+          if(z > 1)
+          {
+            System.out.println("*Error only input 1's and 0's* Restart Program.");
+          }
+        }
+      } 
+    }catch (IOException ioe)
+    {
+      System.exit(-1);
+    }
+  }
+  
+  
+//outputBin:
+//It enters the corresponding 2^n into the array 
+  
+  static void outputBin(int [] binToInt)
+  {
+      if(ok[0])
+      {
+        binToInt[0] = 128;
+      }
+      if(ok[1])
+      {
+        binToInt[1] = 64;
+      }
+      if(ok[2])
+      {
+        binToInt[2] = 32;
+      }
+      if(ok[3])
+      {
+        binToInt[3] = 16;
+      } 
+      if(ok[4])
+      {
+        binToInt[4] = 8;
+      }
+      if(ok[5])
+      {
+        binToInt[5] = 4;
+      }
+      if(ok[6])
+      {
+        binToInt[6] = 2;
+      }
+      if(ok[7])
+      {
+        binToInt[7] = 1;
+      }
+   }
+  
+  
+//outputInt:
+//Returns the int which corresponds with the 8 digit binary code that was entered.
+  
+    static int outputInt(int [] binToInt)
+    {
+      int z = 0;
+      for(int i = 0; i < 8; i++)
+      {
+        z += binToInt[i];
+      }
+      return z;
+    }
+}

@@ -1,0 +1,129 @@
+class binToInt {
+    class func mainWithNSStringArray(args: IOSObjectArray) {
+        binToInt_mainWithNSStringArray_(args)
+    }
+
+    class func initBinWithIntArray(binToInt: IOSIntArray) {
+        binToInt_initBinWithIntArray_(binToInt)
+    }
+
+    class func inputBinWithIntArray(binToInt: IOSIntArray) {
+        binToInt_inputBinWithIntArray_(binToInt)
+    }
+
+    class func outputIntWithIntArray(binToInt: IOSIntArray) {
+        binToInt_outputIntWithIntArray_(binToInt)
+    }
+}
+init() {
+    binToInt_init(self)
+    return self
+}
+
+class func __metadata() -> J2ObjcClassInfo {
+    static let methods: J2ObjcMethodInfo = mainWithNSStringArray:mainV0x9nilnilinitBinWithIntArray:initBinV0x8nilnilinputBinWithIntArray:inputBinV0x8nilniloutputIntWithIntArray:outputIntV0x8nilnilinitnilnil0x1nilnil
+    static let _binToInt: J2ObjcClassInfo = 2binToIntnilnil0x15methods0nil0nil0nilnilnil
+    return &_binToInt
+}
+
+
+var binToInt_mainWithNSStringArray_: void
+    binToInt_initialize()
+    var binToInt: IOSIntArray = IOSIntArray.arrayWithLength(32)
+    binToInt_initBinWithIntArray_(binToInt)
+    binToInt_inputBinWithIntArray_(binToInt)
+    binToInt_outputIntWithIntArray_(binToInt)
+
+
+var binToInt_initBinWithIntArray_: void
+	     binToInt_initialize()
+	     for var i = 0; i < 32; i++ {
+	         *IOSIntArray_GetRef(nil_chk(binToInt), i) = 0
+	     }
+		  
+		  
+void binToInt_inputBinWithIntArray_(IOSIntArray)*binToInt)
+		      binToInt_initialize()
+		      var instr: JavaIoInputStreamReader = new_JavaIoInputStreamReader_initWithJavaIoInputStream_(JreLoadStatic(JavaLangSystem, in_))
+		      var stdin_: JavaIoBufferedReader = new_JavaIoBufferedReader_initWithJavaIoReader_(instr)
+		      var stok: JavaUtilStringTokenizer
+		      var num: jint
+		      var value: String
+		              (nil_chk(JreLoadStatic(JavaLangSystem, out_))).printlnWithNSString("Input a 32 digit binary code. ")
+		          JreLoadStatic(JavaLangSystem, out_).println()
+		          value = stdin_.readLine()
+		          JreLoadStatic(JavaLangSystem, out_).println()
+		          stok = new_JavaUtilStringTokenizer_initWithNSString_(value)
+		          while stok.hasMoreTokens() {
+		              for var i = 0; i < 32; i++ {
+		                  num = JavaLangInteger_parseIntWithNSString_(stok.nextToken())
+		                  var z: jint = num
+								if z == 0 || z == 1 {
+								    *IOSIntArray_GetRef(nil_chk(binToInt), i) = z
+								    if z == 1 {
+								        if i == 0 || i == 8 || i == 16 || i == 24 {
+								            *IOSIntArray_GetRef(binToInt, i) = 128
+								        }
+								        if i == 1 || i == 9 || i == 17 || i == 25 {
+								            *IOSIntArray_GetRef(binToInt, i) = 64
+								        }
+								        if i == 2 || i == 10 || i == 18 || i == 26 {
+								            *IOSIntArray_GetRef(binToInt, i) = 32
+								        }
+								        if i == 3 || i == 11 || i == 19 || i == 27 {
+								            *IOSIntArray_GetRef(binToInt, i) = 16
+								        }
+								        if i == 4 || i == 12 || i == 20 || i == 28 {
+								            *IOSIntArray_GetRef(binToInt, i) = 8
+								        }
+										  if i == 5 || i == 13 || i == 21 || i == 29 {
+										      *IOSIntArray_GetRef(binToInt, i) = 4
+										  }
+										  if i == 6 || i == 14 || i == 22 || i == 30 {
+										      *IOSIntArray_GetRef(binToInt, i) = 2
+										  }
+										  if i == 7 || i == 15 || i == 23 || i == 31 {
+										      *IOSIntArray_GetRef(binToInt, i) = 1
+										  }
+										}
+										if z == 0 {
+										    *IOSIntArray_GetRef(binToInt, i) = 0
+										}
+									 }
+									 if z > 1 {
+									     JreLoadStatic(JavaLangSystem, out_).printlnWithNSString("*Error only input 1's and 0's* Restart Program.")
+									 } 
+								  }
+								}
+								
+								
+var binToInt_outputIntWithIntArray_: void
+	binToInt_initialize()
+   var a: jint = 0
+	var b: jint = 0
+	var c: jint = 0
+	var d: jint = 0
+	for var i = 0; i < 8; i++ {
+		a += IOSIntArray_Get(nil_chk(binToInt), i)
+	}
+	for var i = 8; i < 16; i++ {
+		b += IOSIntArray_Get(nil_chk(binToInt), i)
+	}
+	for var i = 16; i < 24; i++ {
+		c += IOSIntArray_Get(nil_chk(binToInt), i)
+	}
+	for var i = 24; i < 32; i++ {
+		d += IOSIntArray_Get(nil_chk(binToInt), i)
+	}
+	(nil_chk(JreLoadStatic(JavaLangSystem, out_))).printlnWithNSString(JreStrcat(ICICICI, a, ".", b, ".", c, ".", d))
+
+	
+void binToInt_init(binToInt)
+	*self)
+	    NSObject_init(self);
+	
+								
+								
+		  
+	 
+
